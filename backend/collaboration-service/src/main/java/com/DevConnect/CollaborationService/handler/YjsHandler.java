@@ -28,9 +28,9 @@ public class YjsHandler extends BinaryWebSocketHandler {
     public void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         String roomId = getRoomId(session);
         Set<WebSocketSession> clients = rooms.getOrDefault(roomId, Collections.emptySet());
-
-        for(WebSocketSession client: clients) {
-            if(client.isOpen() && client.getId().equals(session.getId())) {
+        System.out.println("Received message");
+        for (WebSocketSession client : clients) {
+            if (client.isOpen() && !client.getId().equals(session.getId())) {
                 try {
                     client.sendMessage(message);
                 } catch (Exception e) {
@@ -59,4 +59,3 @@ public class YjsHandler extends BinaryWebSocketHandler {
         return path.substring(path.lastIndexOf('/') + 1);
     }
 }
-

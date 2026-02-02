@@ -34,7 +34,7 @@ const CollaborativeEditor: React.FC = () => {
         docRef.current = ydoc;
         // 2. Connect to WebSocket
         // Using public demo for testing. Replace with 'ws://localhost:8080/ws' later.
-        const provider = new WebsocketProvider('wss://demos.yjs.dev', 'devconnect-demo-room', ydoc);
+        const provider = new WebsocketProvider('ws://localhost:8080/ws/collaboration', 'devconnect-demo-room', ydoc);
         providerRef.current = provider;
         const type = ydoc.getText('monaco');
         // 3. Define User Awareness (Cursor info)

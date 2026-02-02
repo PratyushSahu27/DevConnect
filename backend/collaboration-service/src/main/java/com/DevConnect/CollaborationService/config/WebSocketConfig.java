@@ -18,6 +18,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(yjsHandler, "/ws").setAllowedOrigins("*");
+        registry.addHandler(yjsHandler, "/ws/collaboration/*").setAllowedOrigins("*");
     }
 }
